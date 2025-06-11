@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto - Nibioc</title>
+  <style>
+    :root {
+      --color-primario: #215E99;
+      --color-secundario: #E8A317;
+      --color-fondo: #f9f9f9;
+      --sombra: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--color-fondo);
+      color: #333;
+      animation: fadeIn 1s ease-in-out;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      background: linear-gradient(to right, var(--color-primario), #1d4d80);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--sombra);
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin-top: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--color-secundario);
+    }
+    main {
+      max-width: 700px;
+      margin: 2rem auto 3rem;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: var(--sombra);
+      animation: slideUp 0.7s ease-in-out;
+      flex-grow: 1;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    h1 {
+      color: var(--color-primario);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--color-primario);
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--color-primario);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s;
+      resize: vertical;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--color-secundario);
+      outline: none;
+    }
+    textarea {
+      min-height: 120px;
+    }
+    button {
+      padding: 1rem;
+      background-color: var(--color-primario);
+      color: white;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      box-shadow: var(--sombra);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    button:hover {
+      background-color: var(--color-secundario);
+      transform: scale(1.05);
+    }
+    .contact-info {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--color-primario);
+    }
+    .contact-info p {
+      margin-bottom: 0.4rem;
+    }
+    footer {
+      background-color: var(--color-primario);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      box-shadow: var(--sombra);
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contacto - Nibioc</h1>
+    <nav>
+      <ul>
+        <li><a href="C:\Users\jedia\Desktop\pagina\inicio.html">Inicio</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\empresa.html">Empresa</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\productos.html">Productos</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\contacto.html">Contacto</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\tienda.html">Tienda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form action="#" method="POST" novalidate>
+      <label for="nombre">Nombre Completo *</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+
+      <label for="email">Correo Electrónico *</label>
+      <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required />
+
+      <label for="telefono">Teléfono *</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="+52 55 1234 5678" pattern="^\+?\d{7,15}$" required />
+
+      <label for="producto">Producto de interés *</label>
+      <select id="producto" name="producto" required>
+        <option value="" disabled selected>Selecciona un producto</option>
+        <option value="monitor-signos">Monitor de Signos Vitales</option>
+        <option value="ecografo-portatil">Ecógrafo Portátil</option>
+        <option value="analizador-sangre">Analizador de Sangre</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      <label for="mensaje">Mensaje / Detalles de Cotización</label>
+      <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos más sobre tus necesidades..." rows="5"></textarea>
+
+      <button type="submit">Enviar Solicitud</button>
+    </form>
+
+    <div class="contact-info">
+      <p>Correo de contacto: <a href="mailto:contacto@nibioc.com">contacto@nibioc.com</a></p>
+      <p>Teléfono: <a href="tel:+525512345678">+52 55 1234 5678</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nibioc. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

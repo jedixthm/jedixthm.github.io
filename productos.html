@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos - Nibioc</title>
+  <style>
+    :root {
+      --color-primario: #215E99;
+      --color-secundario: #E8A317;
+      --color-fondo: #f9f9f9;
+      --sombra: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--color-fondo);
+      color: #333;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      background: linear-gradient(to right, var(--color-primario), #1d4d80);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--sombra);
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin-top: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--color-secundario);
+    }
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+      display: grid;
+      gap: 2rem;
+    }
+    section {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--sombra);
+      animation: slideUp 0.7s ease-in-out;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    h2 {
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+    }
+    p, li {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    footer {
+      background-color: var(--color-primario);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      box-shadow: var(--sombra);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nibioc: Innovación en Equipos Médicos</h1>
+    <nav>
+      <ul>
+        <li><a href="C:\Users\jedia\Desktop\pagina\inicio.html">Inicio</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\empresa.html">Empresa</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\productos.html">Productos</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\contacto.html">Contacto</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\tienda.html">Tienda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Líneas de Productos</h2>
+      <p>En Nibioc desarrollamos equipos médicos que integran tecnología, eficiencia y accesibilidad. Nuestra línea de productos incluye:</p>
+      <ul>
+        <li>Monitores de signos vitales</li>
+        <li>Electrocardiógrafos portátiles</li>
+        <li>Oxímetros de pulso inteligentes</li>
+        <li>Interfaces de usuario intuitivas para hospitales</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Diseño centrado en el usuario</h2>
+      <p>Todos nuestros productos se desarrollan pensando en la experiencia del personal clínico. Incorporamos interfaces limpias, alarmas visuales y conectividad para telemedicina.</p>
+    </section>
+
+    <section>
+      <h2>Galería Representativa</h2>
+      <p>A continuación, algunos ejemplos de diseños y prototipos de nuestros equipos médicos.</p>
+      <!-- Puedes reemplazar estas rutas con tus propias imágenes -->
+      <img src="img/monitor1.jpg" alt="Monitor de signos vitales">
+      <img src="img/ecg-portatil.jpg" alt="ECG portátil">
+      <p style="text-align:center;"><em>Figura 1 y 2 – Prototipos funcionales de equipos Nibioc</em></p>
+    </section>
+
+    <section>
+      <h2>Diferenciadores Técnicos</h2>
+      <ul>
+        <li>Conectividad WiFi y Bluetooth</li>
+        <li>Modularidad en hardware y software</li>
+        <li>Compatibilidad con protocolos HL7 y DICOM</li>
+        <li>Actualizaciones remotas seguras</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Certificaciones y Normas</h2>
+      <p>Nuestros productos siguen las normas NOM y estándares internacionales ISO 13485 e IEC 60601 para seguridad eléctrica, funcionalidad y biocompatibilidad.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nibioc. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

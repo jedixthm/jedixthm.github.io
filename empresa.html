@@ -1,0 +1,164 @@
+<!-- empresa.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empresa - Nibioc</title>
+  <style>
+    :root {
+      --color-primario: #215E99;
+      --color-secundario: #E8A317;
+      --color-fondo: #f9f9f9;
+      --sombra: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--color-fondo);
+      color: #333;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      background: linear-gradient(to right, var(--color-primario), #1d4d80);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--sombra);
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin-top: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--color-secundario);
+    }
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+      display: grid;
+      gap: 2rem;
+    }
+    section {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--sombra);
+      animation: slideUp 0.7s ease-in-out;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    h2 {
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+    }
+    p, li {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    footer {
+      background-color: var(--color-primario);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      box-shadow: var(--sombra);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nibioc: Integrando Soluciones Médicas</h1>
+    <nav>
+      <ul>
+        <li><a href="C:\Users\jedia\Desktop\pagina\inicio.html">Inicio</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\empresa.html">Empresa</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\productos.html">Productos</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\contacto.html">Contacto</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\tienda.html">Tienda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Descripción de la Empresa</h2>
+      <p><strong>Nombre comercial:</strong> Nibioc</p>
+      <p>El nombre <strong>Nibioc</strong> fue concebido con el objetivo de proyectar una identidad sólida, innovadora y distintiva. Es una secuencia de letras sin asociaciones previas, lo que permite construir una marca con significado propio desde cero. Su neutralidad fonética le da fuerza para posicionarse tanto en entornos tecnológicos como corporativos y creativos.</p>
+    </section>
+
+    <section>
+  <h2>Logo</h2>
+  <p>El logo es moderno y minimalista, con elementos matemáticos y símbolos médicos: una hoja blanca estilizada, un engrane circular y un símbolo de integral al centro. La integral representa la solución médica global, y el engrane refleja ingeniería, innovación y precisión.</p>
+  <p>Colores: blanco, azul y amarillo. La tipografía sans-serif refleja una identidad limpia e innovadora. Representa la misión de ofrecer soluciones médicas innovadoras para el futuro.</p>
+  
+  <!-- Aquí colocas la ruta de la imagen -->
+  <img src="C:\Users\jedia\Desktop\pagina\logo.jpeg" alt="Logo de la empresa Nibioc" style="max-width: 300px; display: block; margin: 1rem auto; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border-radius: 10px;">
+
+  <p style="text-align: center;"><em>Figura 1 – Logo de la empresa Nibioc</em></p>
+</section>
+
+
+    <section>
+      <h2>Aviso Comercial</h2>
+      <p><strong>“Integrando soluciones médicas”</strong> representa nuestro compromiso con la innovación, la calidad y el bienestar. Creamos tecnología confiable y centrada en las personas, promoviendo una salud más accesible y un entorno clínico eficiente y conectado.</p>
+    </section>
+
+    <section>
+      <h2>Misión</h2>
+      <p>Diseñar, fabricar, vender y distribuir equipos médicos que integren tecnología y enfoque humano, mejorando la atención médica mediante soluciones personalizadas y accesibles.</p>
+    </section>
+
+    <section>
+      <h2>Visión</h2>
+      <p>Ser referentes nacionales en tecnología médica, desarrollando soluciones inteligentes que transformen la atención en salud.</p>
+    </section>
+
+    <section>
+      <h2>Valores</h2>
+      <ul>
+        <li><strong>Calidad:</strong> Excelencia constante en procesos, materiales y resultados.</li>
+        <li><strong>Empatía:</strong> Diseñamos pensando en personas reales y sus emociones.</li>
+        <li><strong>Equidad:</strong> Acceso igualitario a tecnología sin comprometer la calidad.</li>
+        <li><strong>Inclusión:</strong> Tecnología adaptada a todas las personas y contextos.</li>
+        <li><strong>Responsabilidad:</strong> Cumplimos con normas éticas y técnicas rigurosas.</li>
+        <li><strong>Trabajo en equipo:</strong> Colaboración entre disciplinas clínicas y técnicas.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Historia</h2>
+      <p>Nibioc nació en 2025 cuando un grupo de ingenieros biomédicos unieron talentos para mejorar el acceso y la calidad de los equipos médicos en México. De un proyecto académico nació una empresa comprometida con soluciones accesibles y humanas.</p>
+      <p>Hoy seguimos creciendo con una sola misión: transformar la atención médica desde la tecnología que acompaña la vida.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nibioc. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

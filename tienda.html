@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tienda - Nibioc</title>
+  <style>
+    :root {
+      --color-primario: #215E99;
+      --color-secundario: #E8A317;
+      --color-fondo: #f9f9f9;
+      --sombra: 0 8px 20px rgba(0, 0, 0, 0.2);
+      --color-error: #d9534f;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--color-fondo);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      background: linear-gradient(to right, var(--color-primario), #1d4d80);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--sombra);
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin-top: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--color-secundario);
+    }
+    main {
+      max-width: 1100px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 2rem;
+      flex-grow: 1;
+    }
+    section.productos {
+      background-color: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--sombra);
+      overflow-y: auto;
+      max-height: 600px;
+    }
+    section.productos h2 {
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .producto {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .producto img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 0.8rem;
+      object-fit: contain;
+      height: 180px;
+      background-color: #f5f5f5;
+    }
+    .producto h3 {
+      color: var(--color-primario);
+      margin-bottom: 0.5rem;
+    }
+    .producto p {
+      flex-grow: 1;
+      font-size: 0.95rem;
+      margin-bottom: 0.7rem;
+    }
+    .producto .precio {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-secundario);
+    }
+    .producto label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .producto input[type="number"] {
+      width: 80px;
+      padding: 0.3rem 0.5rem;
+      font-size: 1rem;
+      border: 2px solid var(--color-primario);
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      -moz-appearance: textfield;
+    }
+    .producto input::-webkit-inner-spin-button,
+    .producto input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .producto button {
+      background-color: var(--color-primario);
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      align-self: flex-start;
+    }
+    .producto button:hover {
+      background-color: var(--color-secundario);
+    }
+    section.carrito {
+      background-color: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--sombra);
+      max-height: 600px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    section.carrito h2 {
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .carrito-items {
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+    .carrito-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.95rem;
+    }
+    .carrito-item:last-child {
+      border-bottom: none;
+    }
+    .carrito-item span {
+      flex: 1;
+    }
+    .carrito-item .cantidad {
+      width: 40px;
+      text-align: center;
+    }
+    .carrito-total {
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-align: right;
+      margin-bottom: 1rem;
+      color: var(--color-secundario);
+    }
+    .carrito-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .carrito-buttons button {
+      flex: 1;
+      padding: 0.8rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      box-shadow: var(--sombra);
+    }
+    .btn-vaciar {
+      background-color: var(--color-error);
+      color: white;
+    }
+    .btn-vaciar:hover {
+      background-color: #a93d3d;
+    }
+    .btn-comprar {
+      background-color: var(--color-secundario);
+      color: #333;
+    }
+    .btn-comprar:hover {
+      background-color: #c48d16;
+    }
+    footer {
+      background-color: var(--color-primario);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      box-shadow: var(--sombra);
+      margin-top: auto;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+        max-width: 95%;
+      }
+      section.carrito {
+        max-height: none;
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tienda Virtual - Nibioc</h1>
+    <nav>
+      <ul>
+        <li><a href="C:\Users\jedia\Desktop\pagina\inicio.html">Inicio</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\empresa.html">Empresa</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\productos.html">Productos</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\contacto.html">Contacto</a></li>
+        <li><a href="C:\Users\jedia\Desktop\pagina\tienda.html">Tienda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Productos -->
+    <section class="productos" aria-label="Listado de productos">
+      <h2>Productos Disponibles</h2>
+      <div id="lista-productos">
+        <!-- Productos generados por JS -->
+      </div>
+    </section>
+
+    <!-- Carrito -->
+    <section class="carrito" aria-label="Carrito de compras">
+      <h2>Tu Carrito</h2>
+      <div class="carrito-items" id="carrito-items">
+        <p>No hay productos en el carrito.</p>
+      </div>
+      <div class="carrito-total" id="carrito-total">Total: $0.00</div>
+      <div class="carrito-buttons">
+        <button class="btn-vaciar" id="vaciar-carrito">Vaciar carrito</button>
+        <button class="btn-comprar" id="finalizar-compra">Finalizar compra</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nibioc. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Productos disponibles
+    const productos = [
+      {
+        id: 1,
+        nombre: 'Monitor de Signos Vitales',
+        descripcion: 'Equipo avanzado para monitoreo continuo de parámetros vitales.',
+        precio: 3500.00,
+        imagen: 'https://i.imgur.com/1Ds2VxZ.png',
+      },
+      {
+        id: 2,
+        nombre: 'Oxímetro de Pulso',
+        descripcion: 'Dispositivo portátil para medir saturación de oxígeno y pulso.',
+        precio: 1200.00,
+        imagen: 'https://i.imgur.com/Vj9Cl4Q.png',
+      },
+      {
+        id: 3,
+        nombre: 'Electrocardiógrafo',
+        descripcion: 'Equipo para registro y análisis de actividad eléctrica cardíaca.',
+        precio: 5500.00,
+        imagen: 'https://i.imgur.com/8VP9JhY.png',
+      }
+    ];
+
+    // Estado del carrito
+    let carrito = {};
+
+    // Elementos DOM
+    const listaProductos = document.getElementById('lista-productos');
+    const carritoItems = document.getElementById('carrito-items');
+    const carritoTotal = document.getElementById('carrito-total');
+    const btnVaciar = document.getElementById('vaciar-carrito');
+    const btnComprar = document.getElementById('finalizar-compra');
+
+    // Función para mostrar productos
+    function mostrarProductos() {
+      listaProductos.innerHTML = '';
+      productos.forEach(producto => {
+        const productoDiv = document.createElement('div');
+        productoDiv.className = 'producto';
+        productoDiv.innerHTML = `
+          <img src="${producto.imagen}" alt="Imagen de ${producto.nombre}" />
+          <h3>${producto.nombre}</h3>
+          <p>${producto.descripcion}</p>
+          <div class="precio">$${producto.precio.toFixed(2)}</div>
+          <label for="cantidad-${producto.id}">Cantidad:</label>
+          <input type="number" id="cantidad-${producto.id}" min="1" value="1" />
+          <button data-id="${producto.id}">Agregar al carrito</button>
+        `;
+        listaProductos.appendChild(productoDiv);
+
+        // Evento botón agregar
+        const btnAgregar = productoDiv.querySelector('button');
+        btnAgregar.addEventListener('click', () => {
+          const cantidadInput = productoDiv.querySelector('input[type="number"]');
+          let cantidad = parseInt(cantidadInput.value);
+          if (isNaN(cantidad) || cantidad < 1) {
+            alert('Por favor ingresa una cantidad válida (mínimo 1).');
+            return;
+          }
+          agregarAlCarrito(producto.id, cantidad);
+          cantidadInput.value = 1; // reset cantidad a 1
+        });
+      });
+    }
+
+    // Función para agregar productos al carrito
+    function agregarAlCarrito(id, cantidad) {
+      if (carrito[id]) {
+        carrito[id].cantidad += cantidad;
+      } else {
+        const producto = productos.find(p => p.id === id);
+        carrito[id] = {
+          ...producto,
+          cantidad
+        };
+      }
+      actualizarCarrito();
+    }
+
+    // Función para actualizar la vista del carrito
+    function actualizarCarrito() {
+      carritoItems.innerHTML = '';
+
+      const items = Object.values(carrito);
+      if (items.length === 0) {
+        carritoItems.innerHTML = '<p>No hay productos en el carrito.</p>';
+        carritoTotal.textContent = 'Total: $0.00';
+        return;
+      }
+
+      let total = 0;
+      items.forEach(item => {
+        total += item.precio * item.cantidad;
+
+        const div = document.createElement('div');
+        div.className = 'carrito-item';
+        div.innerHTML = `
+          <span>${item.nombre}</span>
+          <span class="cantidad">x${item.cantidad}</span>
+          <span>$${(item.precio * item.cantidad).toFixed(2)}</span>
+          <button aria-label="Eliminar ${item.nombre}" data-id="${item.id}">❌</button>
+        `;
+        carritoItems.appendChild(div);
+
+        // Evento eliminar
+        div.querySelector('button').addEventListener('click', () => {
+          eliminarDelCarrito(item.id);
+        });
+      });
+
+      carritoTotal.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    // Eliminar producto del carrito
+    function eliminarDelCarrito(id) {
+      delete carrito[id];
+      actualizarCarrito();
+    }
+
+    // Vaciar carrito
+    btnVaciar.addEventListener('click', () => {
+      if (confirm('¿Quieres vaciar todo el carrito?')) {
+        carrito = {};
+        actualizarCarrito();
+      }
+    });
+
+    // Finalizar compra simulada
+    btnComprar.addEventListener('click', () => {
+      const items = Object.values(carrito);
+      if (items.length === 0) {
+        alert('Tu carrito está vacío.');
+        return;
+      }
+      alert('Gracias por tu compra! (Esto es solo una simulación.)');
+      carrito = {};
+      actualizarCarrito();
+    });
+
+    // Inicializar tienda
+    mostrarProductos();
+    actualizarCarrito();
+  </script>
+</body>
+</html>
