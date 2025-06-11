@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio</title>
+  <style>
+    :root {
+      --color-primario: #215E99;
+      --color-secundario: #E8A317;
+      --color-fondo: #f9f9f9;
+      --sombra: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--color-fondo);
+      color: #333;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 🔆 Fondo del logo más visible */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 80vw;
+      height: 80vw;
+      background-image: url('logo.jpeg'); /* ← cambia si tu archivo tiene otro nombre */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.12; /* 🔼 Antes 0.05, ahora se ve más */
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      pointer-events: none;
+      animation: flotarLogo 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes flotarLogo {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      100% { transform: translate(-50%, -48%) scale(1.05); }
+    }
+
+    header, main, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--color-primario), #1d4d80);
+      color: white;
+      text-align: center;
+      box-shadow: var(--sombra);
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 6rem;
+      font-weight: 900;
+      color: var(--color-secundario);
+      text-shadow:
+        2px 2px 10px rgba(0, 0, 0, 0.6),
+        0 0 20px var(--color-secundario);
+      letter-spacing: 0.15em;
+      font-family: 'Segoe UI Black', 'Arial Black', sans-serif;
+      animation: aparecer 1.2s ease-out;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .boton-seccion {
+      display: inline-block;
+      margin: 1rem;
+      padding: 1.5rem 2.5rem;
+      background-color: var(--color-primario);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: var(--sombra);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .boton-seccion:hover {
+      background-color: var(--color-secundario);
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: var(--color-primario);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      box-shadow: var(--sombra);
+      margin-top: auto; /* 👈 Esto empuja el footer al final */
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nibioc</h1>
+  </header>
+
+  <main>
+    <a class="boton-seccion" href="C:\Users\jedia\Desktop\pagina\empresa.html">Información de la Empresa</a>
+    <a class="boton-seccion" href="C:\Users\jedia\Desktop\pagina\productos.html">Detalles Técnicos de los Productos</a>
+    <a class="boton-seccion" href="C:\Users\jedia\Desktop\pagina\contacto.html">Formulario de Contacto</a>
+    <a class="boton-seccion" href="C:\Users\jedia\Desktop\pagina\tienda.html">Próximamente: Tienda en Línea</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sitio Profesional. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
